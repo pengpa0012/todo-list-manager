@@ -1,0 +1,171 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #2e7eaf;
+}
+
+.heading{
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.container{
+    display: contents;
+    width: 100%; 
+}
+
+.container .draggable-box{
+    padding: 2rem 2rem 3.5rem 2rem;
+    margin: 1rem;
+    flex: 1;
+    position: relative;
+    background: rgba(255, 255, 255, .65);
+}
+
+.container .draggable-box .draggable{
+    padding: 10px 15px 10px 25px;
+    margin: .5rem 0;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+}
+
+.container .draggable-box .draggable::after{
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #919191;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 10px 0 0 #919191,
+                0 -10px 0 0 #919191;
+}
+
+.container .draggable-box .draggable h4{
+    margin: 0;
+}
+
+.container .draggable-box .draggable:hover{
+    opacity: .5;
+}
+
+.container .draggable-box .draggable.dragging{
+    opacity: .5;
+}
+
+.pop-up-draggable{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transform: scale(0) translate(-50%, -50%);
+    transform-origin: 0 0;
+    transition: 250ms ease-in;
+    z-index: 5;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 400px;
+    width: 100%;
+}
+
+.pop-up-draggable input{
+    margin-bottom: 1rem;
+}
+
+.pop-up-draggable input,
+.pop-up-draggable button{
+    font-size: 1.1rem;
+}
+
+.pop-up-draggable input{
+    padding: 5px;
+    border-radius: 3px;
+    width: 100%;
+    border: solid 1px #6c757d;
+    outline: none;
+}
+
+.pop-up-draggable h2{
+    margin-bottom: 1rem;
+}
+
+.pop-up-draggable button{
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+}
+
+.pop-up-draggable.show{
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 250ms ease-in;
+}
+
+.overlay.show{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.add-draggable{
+    color: #fff;
+    background: #29a12e;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 2rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px){
+
+    body{
+        flex-direction: column;
+    }
+    
+    .heading{
+        position: static;
+        transform: translateX(0);
+        padding: 1rem;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
