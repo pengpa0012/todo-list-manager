@@ -151,6 +151,10 @@ body{
     border-radius: 5px;
 }
 
+.not-supported-text{
+    display: none;
+}
+
 @media (max-width: 768px){
 
     body{
@@ -166,6 +170,18 @@ body{
     .container{
         display: flex;
         flex-direction: column;
+    }
+
+}
+
+@media (max-width: 576px){
+    body{
+        background: #fff;
+    }
+
+    .heading,
+    .container{
+        display: none;
     }
 
 }
